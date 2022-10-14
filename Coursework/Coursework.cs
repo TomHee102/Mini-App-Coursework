@@ -97,9 +97,9 @@ namespace MiniApps
                 counting = false;
                 menu = true;
                 Console.WriteLine("Finish!");
-                Console.ReadLine();
+                System.Threading.Thread.Sleep(1000);
                 menu = true;
-                break;
+                continue;
 
             }
 
@@ -112,13 +112,15 @@ namespace MiniApps
                 while(paramMenu) {
                     Console.Write("Enter a Positive Integer: ");
                     inputSqrt = Int32.Parse(Console.ReadLine());
-                    Console.WriteLine("");
+                    Console.Clear();
                     Console.Write("Enter the decimal precision of the result: ");
                     precision = Int32.Parse(Console.ReadLine());
+                    Console.Clear();
                     if(precision > 6 || precision < 0) {
                         Console.Clear();
                         Console.WriteLine("Please enter a valid precision!");
                         System.Threading.Thread.Sleep(1000);
+                        Console.Clear();
                         continue;
                     } else {
                         paramMenu = false;
@@ -151,7 +153,7 @@ namespace MiniApps
 
                 avrg = Math.Round(avrg, precision);
                 Console.WriteLine("");
-                Console.WriteLine("The square root of {0} is {1}.", inputSqrt, avrg);
+                Console.WriteLine("The square root of {0} to {1} decimal places is {2}.", inputSqrt, precision, avrg);
                 Console.ReadLine();
                 menu = true;
                 break;
